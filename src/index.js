@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from 'react-dom/client';
 
+// This is how we import css we put . because we have to find the file path
+import './booktutorial.css'
+
 const BookList = () => {
-    return <section>
+    // If we want to style we use a className
+    return <section className="booklist">
         <Book/>
         <Book/>
         <Book/>
@@ -11,7 +15,7 @@ const BookList = () => {
 }
 
 const Book = () => {
-    return <article>
+    return <article className="book">
         <Image/>
         <Title/>
         <Author/>
