@@ -4,48 +4,59 @@ import ReactDOM from 'react-dom/client';
 // This is how we import css we put . because we have to find the file path
 import './booktutorial.css'
 
+// We are creating an array for the books instead of using objects or components
+const books = [
+    {
+        author: 'Colleen Hoover',
+        title: 'It Ends with Us: A Novel',
+        img:'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg'
+    },
+
+    {
+        author: 'Bonnie Garmus',
+        title: 'Lessons in Chemistry',
+        img: 'https://m.media-amazon.com/images/I/413bIQtFVFL.jpg'
+    }
+];
 
 
-
-
-// creating objects
-
-const firstBook = {
-    author: 'Colleen Hoover',
-    title: 'It Ends with Us: A Novel',
-    img:'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg'
-};
-
-const secondBook = {
-    author: 'Bonnie Garmus',
-    title: 'Lessons in Chemistry',
-    img: 'https://m.media-amazon.com/images/I/413bIQtFVFL.jpg'
-};
-
-//NOTES *    parameters
-const someFunc = (param1, param2) => {
-    console.log(param1, param2)
-}
-// arguments
-someFunc('job', 'developer');
+// map-creates a new array from calling a function for every array element. We are using map to loop through the names and output them
+// const names = ['David', 'Luca', 'Lessly'];
+//
+// const newNames = names.map((name) => {
+//     return <h1>{name}</h1>
+// })
 
 
 
 const BookList = () => {
     // If we want to style we use a className
-    return <section className="booklist">
-        <Book author={firstBook.author} title={firstBook.title} img={firstBook.img} />
-        <Book author={secondBook.author} title={secondBook.title} img={secondBook.img} />
+    return (
+    <section className="booklist">
+        {books.map((book) =>{
+            console.log(book)
+            const {img,title,author} = book
+            return (
+                <Book img={img} title={title} author={author} />
+            )
+
+        })}
     </section>
+    );
 };
 
 const Book = (props) => {
+    const {img, title, author, children} = props
     console.log(props)
     return (
         <article className='book'>
-            <img src={props.img} alt={props.title}/>
-            <h2>{props.title}</h2>
-            <h4>{props.author}</h4>
+            {/*If we have a parameter props we would call like props.image but we change it to include the argument*/}
+            {/*<img src={props.img} alt={props.title}/>*/}
+            <img src={img} alt={title}/>
+            <h2>{title}</h2>
+            <h4>{author}</h4>
+            {children}
+
         </article>
     )
 }
@@ -71,6 +82,59 @@ root.render(<BookList />);
 
 
 
+//////////////////////////////////////////////////////////////////////// NOTES before refactoring////////////////////////////////////////////
+
+
+// creating objects
+
+// const firstBook = {
+//     author: 'Colleen Hoover',
+//     title: 'It Ends with Us: A Novel',
+//     img:'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg'
+// };
+//
+// const secondBook = {
+//     author: 'Bonnie Garmus',
+//     title: 'Lessons in Chemistry',
+//     img: 'https://m.media-amazon.com/images/I/413bIQtFVFL.jpg'
+// };
+//
+// //NOTES *    parameters
+// const someFunc = (param1, param2) => {
+//     console.log(param1, param2)
+// }
+// // arguments
+// someFunc('job', 'developer');
+//
+//
+//
+// const BookList = () => {
+//     // If we want to style we use a className
+//     return <section className="booklist">
+//         <Book author={firstBook.author} title={firstBook.title} img={firstBook.img}>
+//             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto aut enim est hic mollitia odio provident soluta ut veniam.</p>
+//             <button>Click me</button>
+//         </Book>
+//
+//         <Book author={secondBook.author} title={secondBook.title} img={secondBook.img} />
+//     </section>
+// };
+//
+// const Book = (props) => {
+//     const {img, title, author, children} = props
+//     console.log(props)
+//     return (
+//         <article className='book'>
+//             {/*If we have a parameter props we would call like props.image but we change it to include the argument*/}
+//             {/*<img src={props.img} alt={props.title}/>*/}
+//             <img src={img} alt={title}/>
+//             <h2>{title}</h2>
+//             <h4>{author}</h4>
+//             {children}
+//
+//         </article>
+//     )
+// }
 
 
 
@@ -81,10 +145,7 @@ root.render(<BookList />);
 
 
 
-
-
-
-//////////////////////////////////////////////////////////////////////// NOTES ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////// NOTES before refactoring////////////////////////////////////////////
 // const BookList = () => {
 //     // If we want to style we use a className
 //     return <section className="booklist">
