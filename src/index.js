@@ -6,9 +6,21 @@ import './booktutorial.css'
 
 
 
-const author = 'Colleen Hoover';
-const title = 'It Ends with Us: A Novel';
-const img = 'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg'
+
+
+// creating objects
+
+const firstBook = {
+    author: 'Colleen Hoover',
+    title: 'It Ends with Us: A Novel',
+    img:'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg'
+};
+
+const secondBook = {
+    author: 'Bonnie Garmus',
+    title: 'Lessons in Chemistry',
+    img: 'https://m.media-amazon.com/images/I/413bIQtFVFL.jpg'
+};
 
 //NOTES *    parameters
 const someFunc = (param1, param2) => {
@@ -22,8 +34,8 @@ someFunc('job', 'developer');
 const BookList = () => {
     // If we want to style we use a className
     return <section className="booklist">
-        <Book job="developer"/>
-        <Book title="random title" number={22}/>
+        <Book author={firstBook.author} title={firstBook.title} img={firstBook.img} />
+        <Book author={secondBook.author} title={secondBook.title} img={secondBook.img} />
     </section>
 };
 
@@ -31,16 +43,16 @@ const Book = (props) => {
     console.log(props)
     return (
         <article className='book'>
-            <img src={img} alt={title}/>
-            <h2>{title}</h2>
-            <h4>{author}</h4>
-            <p>{props.job}</p>
-            <p>{props.title}</p>
-            <p>{props.number}</p>
-
+            <img src={props.img} alt={props.title}/>
+            <h2>{props.title}</h2>
+            <h4>{props.author}</h4>
         </article>
     )
 }
+
+
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
