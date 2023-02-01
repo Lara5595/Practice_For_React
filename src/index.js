@@ -6,23 +6,40 @@ import './booktutorial.css'
 
 
 
+const author = 'Colleen Hoover';
+const title = 'It Ends with Us: A Novel';
+const img = 'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg'
+
+//NOTES *    parameters
+const someFunc = (param1, param2) => {
+    console.log(param1, param2)
+}
+// arguments
+someFunc('job', 'developer');
+
+
 
 const BookList = () => {
     // If we want to style we use a className
     return <section className="booklist">
-        <Book/>
-        <Book/>
-        <Book/>
-        <Book/>
+        <Book job="developer"/>
+        <Book title="random title" number={22}/>
     </section>
-}
+};
 
-const Book = () => {
-    return <article className="book">
-        <img src=" https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg"/>
-        <h2>It Ends with Us: A Novel</h2>
-        <h4>Colleen Hoover</h4>
-    </article>
+const Book = (props) => {
+    console.log(props)
+    return (
+        <article className='book'>
+            <img src={img} alt={title}/>
+            <h2>{title}</h2>
+            <h4>{author}</h4>
+            <p>{props.job}</p>
+            <p>{props.title}</p>
+            <p>{props.number}</p>
+
+        </article>
+    )
 }
 
 
