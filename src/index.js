@@ -38,10 +38,11 @@ const BookList = () => {
         {books.map((book) =>{
             console.log(book)
             // We are pulling the properties out of the object by created a const with the properties and passing book
-            const {img,title,author,id} = book
             return (
                 // We set up the key by passing a id to the book objects
-                <Book img={img} title={title} author={author} key={id} />
+                <Book book={book} key={book.id} />
+                // We can also use the spread operator
+                // <Book {...book} key ={book.id}/>
             )
         })}
     </section>
@@ -51,7 +52,9 @@ const BookList = () => {
 // continue map
 
 const Book = (props) => {
-    const {img, title, author, children} = props
+    // We are passing props.book so it gets the book list properties
+    // If we use the spread operator we would need to take of the book out of props.book
+    const {img, title, author, children} = props.book
     console.log(props)
     return (
         <article className='book'>
