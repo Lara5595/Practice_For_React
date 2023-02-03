@@ -9,13 +9,15 @@ const books = [
     {
         author: 'Colleen Hoover',
         title: 'It Ends with Us: A Novel',
-        img:'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg'
+        img:'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg',
+        id: 1,
     },
 
     {
         author: 'Bonnie Garmus',
         title: 'Lessons in Chemistry',
-        img: 'https://m.media-amazon.com/images/I/413bIQtFVFL.jpg'
+        img: 'https://m.media-amazon.com/images/I/413bIQtFVFL.jpg',
+        id: 2,
     }
 ];
 
@@ -35,11 +37,12 @@ const BookList = () => {
     <section className="booklist">
         {books.map((book) =>{
             console.log(book)
-            const {img,title,author} = book
+            // We are pulling the properties out of the object by created a const with the properties and passing book
+            const {img,title,author,id} = book
             return (
-                <Book img={img} title={title} author={author} />
+                // We set up the key by passing a id to the book objects
+                <Book img={img} title={title} author={author} key={id} />
             )
-
         })}
     </section>
     );
