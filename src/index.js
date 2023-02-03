@@ -45,6 +45,8 @@ const BookList = () => {
     );
 };
 
+// continue map
+
 const Book = (props) => {
     const {img, title, author, children} = props
     console.log(props)
