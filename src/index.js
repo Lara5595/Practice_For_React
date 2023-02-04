@@ -100,9 +100,16 @@ const EventExamples = () => {
         <h2>Typical Form</h2>
             {/*We pass on change, so it knows to console log the event*/}
             <input type="text" name="example" onChange={handleFormInput} style={{margin: '1rem 0'}} />
+            {/*Another way to pass an event is
+             <button onClick={() => console.log('click me'*/}
+
+            {/*We pass on click, so it knows when button is click to alert*/}
+            {/*by doing type submit it submits the form*/}
+            <button type="submit">Submit</button>
+            <div>
+            <button onClick={handleButtonClick}>Click me</button>
+            </div>
         </form>
-        {/*We pass on click so it knows when button is click to alert*/}
-        <button onClick={handleButtonClick}>Click me</button>
     </section>
     )
 }
