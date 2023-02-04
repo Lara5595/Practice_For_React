@@ -7,16 +7,16 @@ import './booktutorial.css'
 // We are creating an array for the books instead of using objects or components
 const books = [
     {
-        author: 'Colleen Hoover',
-        title: 'It Ends with Us: A Novel',
-        img:'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL600_SR600,400_.jpg',
+        author: 'Prince Harry',
+        title: 'Spare',
+        img:'https://m.media-amazon.com/images/I/41hYQIILU3L.jpg',
         id: 1,
     },
 
     {
-        author: 'Bonnie Garmus',
-        title: 'Lessons in Chemistry',
-        img: 'https://m.media-amazon.com/images/I/413bIQtFVFL.jpg',
+        author: 'James Clear',
+        title: 'Atomic Habits',
+        img: 'https://m.media-amazon.com/images/I/71F4+7rk2eL.jpg',
         id: 2,
     }
 ];
@@ -35,6 +35,7 @@ const BookList = () => {
     // If we want to style we use a className
     return (
     <section className="booklist">
+        <EventExamples/>
         {books.map((book) =>{
             console.log(book)
             // We are pulling the properties out of the object by created a const with the properties and passing book
@@ -70,7 +71,28 @@ const Book = (props) => {
 }
 
 
+const EventExamples = () => {
+    // this is for when we type on the input box in logs
+    const handleFormInput = () =>{
+        console.log("handle form input")
+    }
 
+    // This is for when we click the button is does the event
+    const handleButtonClick = () =>{
+        alert("handle button click")
+    }
+    return(
+    <section>
+        <form>
+        <h2>Typical Form</h2>
+            {/*We pass on change, so it knows to console log the event*/}
+            <input type="text" name="example" onChange={handleFormInput} style={{margin: '1rem 0'}} />
+        </form>
+        {/*We pass on click so it knows when button is click to alert*/}
+        <button onClick={handleButtonClick}>Click me</button>
+    </section>
+    )
+}
 
 
 
