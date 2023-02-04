@@ -73,7 +73,14 @@ const Book = (props) => {
 
 const EventExamples = () => {
     // this is for when we type on the input box in logs
-    const handleFormInput = () =>{
+    // We are passing e, so we can log the event
+
+    const handleFormInput = (e) =>{
+        console.log(e)
+        // log e.value gets what you enter. We are getting target from the event e
+        console.log(e.target.value)
+        // this is getting the  input name that we put
+        console.log(e.target.name)
         console.log("handle form input")
     }
 
@@ -81,9 +88,15 @@ const EventExamples = () => {
     const handleButtonClick = () =>{
         alert("handle button click")
     }
+    const handleFormSubmission = (e) =>{
+        // E prevent default helps you when you submit something
+        e.preventDefault();
+        console.log("Form Submitted")
+    }
+
     return(
     <section>
-        <form>
+        <form onSubmit={handleFormSubmission}>
         <h2>Typical Form</h2>
             {/*We pass on change, so it knows to console log the event*/}
             <input type="text" name="example" onChange={handleFormInput} style={{margin: '1rem 0'}} />
