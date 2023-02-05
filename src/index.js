@@ -56,6 +56,9 @@ const Book = (props) => {
     // We are passing props.book so it gets the book list properties
     // If we use the spread operator we would need to take of the book out of props.book
     const {img, title, author, children} = props.book
+    const displayTitle = () => {
+        console.log(title)
+    }
     console.log(props)
     return (
         <article className='book'>
@@ -63,6 +66,8 @@ const Book = (props) => {
             {/*<img src={props.img} alt={props.title}/>*/}
             <img src={img} alt={title}/>
             <h2>{title}</h2>
+            {/*This is another way that you can use events instead of having a event component*/}
+            <button onClick={displayTitle}>Display Title</button>
             <h4>{author}</h4>
             {children}
 
